@@ -1,0 +1,45 @@
+import React from "react";
+import Container from "../components/common/Container";
+import SectionHeader from "../components/common/SectionHeader";
+import ServiceCard from "../components/Cards/ServiceCard";
+import { services } from "../data/services";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "../utils/motion";
+
+const Services = () => {
+  return (
+    <section className="pt-10 md:pt-14">
+      <Container>
+        <SectionHeader
+          eyebrow="Services"
+          title="Practical AI and Software"
+          subtitle="No inflated claims. We’re building real capabilities step by step."
+        />
+
+        <motion.div
+          variants={staggerContainer(0.08)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
+          {services.map((s, idx) => (
+            <motion.div key={s.title} variants={fadeInUp(idx * 0.03)}>
+              <ServiceCard {...s} />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="mt-10 glass gradient-border p-6">
+          <h3 className="text-lg font-semibold">Engagement Notes</h3>
+          <p className="text-white/70 mt-2 text-sm">
+            We start small, define success metrics, and ship iteratively. If your use case fits our
+            focus areas, we’re open to collaborate.
+          </p>
+        </div>
+      </Container>
+    </section>
+  );
+};
+
+export default Services;

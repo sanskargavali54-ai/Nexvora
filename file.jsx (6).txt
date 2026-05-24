@@ -1,0 +1,7 @@
+import React from "react";
+
+const GradientText = ({ children, className = "" }) => (
+  <span className={`text-gradient ${className}`}>{children}</span>
+);
+
+export default GradientText;

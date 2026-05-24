@@ -1,0 +1,36 @@
+import React from "react";
+import Container from "../components/common/Container";
+import SectionHeader from "../components/common/SectionHeader";
+
+const Support = () => {
+  return (
+    <section className="pt-10 md:pt-14">
+      <Container>
+        <SectionHeader
+          eyebrow="Support"
+          title="We’re here to help"
+          subtitle="Minimal wait, clear communication. Reach out anytime."
+        />
+
+        <div className="mt-8 grid md:grid-cols-2 gap-6">
+          <div className="glass gradient-border p-6">
+            <h3 className="text-lg font-semibold">Contact</h3>
+            <p className="text-white/70 mt-2 text-sm">
+              Phone: 8432451546
+              <br />
+              Email: studioes.nexvora
+            </p>
+          </div>
+          <div className="glass gradient-border p-6">
+            <h3 className="text-lg font-semibold">Status</h3>
+            <p className="text-white/70 mt-2 text-sm">
+              Currently Building • Coming Soon — public docs and self-serve resources.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+};
+
+export default Support;

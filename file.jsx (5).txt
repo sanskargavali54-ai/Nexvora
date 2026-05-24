@@ -1,0 +1,19 @@
+import React from "react";
+import { cn } from "../../utils/cn";
+
+const Button = ({ as: Tag = "button", className, children, variant = "primary", ...props }) => {
+  const base = "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition-colors";
+  const variants = {
+    primary:
+      "bg-gradient-to-r from-brand.blue/90 to-brand.purple/90 text-white shadow-glow hover:from-brand.blue hover:to-brand.purple",
+    ghost:
+      "border border-white/10 bg-white/5 hover:bg-white/10 text-white/90",
+  };
+  return (
+    <Tag className={cn(base, variants[variant], "gradient-border", className)} {...props}>
+      {children}
+    </Tag>
+  );
+};
+
+export default Button;

@@ -1,0 +1,62 @@
+import React from "react";
+import Hero from "../components/Hero";
+import Container from "../components/common/Container";
+import SectionHeader from "../components/common/SectionHeader";
+import ServiceCard from "../components/Cards/ServiceCard";
+import { services } from "../data/services";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "../utils/motion";
+import LoadingScreen from "../components/LoadingScreen";
+
+const Home = () => {
+  const [ready, setReady] = React.useState(false);
+
+  React.useEffect(() => {
+    const t = setTimeout(() => setReady(true), 900);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <>
+      {!ready && <LoadingScreen />}
+      <Hero />
+
+      <section className="mt-16">
+        <Container>
+          <SectionHeader
+            eyebrow="Capabilities"
+            title="What we focus on"
+            subtitle="Nexvora builds practical AI and modern software—lean, reliable, and production-minded."
+          />
+
+          <motion.div
+            variants={staggerContainer(0.08)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          >
+            {services.map((s, idx) => (
+              <motion.div key={s.title} variants={fadeInUp(idx * 0.03)}>
+                <ServiceCard {...s} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </Container>
+      </section>
+
+      <section className="mt-16">
+        <Container>
+          <div className="glass gradient-border p-6 text-center">
+            <h3 className="text-xl font-semibold">Open for Collaborations</h3>
+            <p className="text-white/70 mt-2">
+              Have a roadmap or an idea worth shipping? Let’s scope it together.
+            </p>
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+};
+
+export default Home;

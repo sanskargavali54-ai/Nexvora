@@ -1,0 +1,14 @@
+import React from "react";
+
+const ProjectCard = () => {
+  return (
+    <div className="glass gradient-border p-5 h-full">
+      <h3 className="text-lg font-semibold">Portfolio</h3>
+      <p className="text-white/70 mt-2 text-sm">
+        Coming Soon — We’re assembling real, honest case studies. No fake projects.
+      </p>
+    </div>
+  );
+};
+
+export default ProjectCard;

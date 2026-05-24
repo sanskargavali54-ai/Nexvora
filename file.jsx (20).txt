@@ -1,0 +1,26 @@
+import React from "react";
+import Container from "../components/common/Container";
+import SectionHeader from "../components/common/SectionHeader";
+import ProjectCard from "../components/Cards/ProjectCard";
+
+const Portfolio = () => {
+  return (
+    <section className="pt-10 md:pt-14">
+      <Container>
+        <SectionHeader
+          eyebrow="Portfolio"
+          title="Work in progress"
+          subtitle="Coming Soon — We’ll share real projects once they’re production-ready."
+        />
+
+        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+        </div>
+      </Container>
+    </section>
+  );
+};
+
+export default Portfolio;

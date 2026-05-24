@@ -1,0 +1,53 @@
+import React from "react";
+import Container from "../components/common/Container";
+import SectionHeader from "../components/common/SectionHeader";
+
+const About = () => {
+  return (
+    <section className="pt-10 md:pt-14">
+      <Container>
+        <SectionHeader
+          eyebrow="About Nexvora"
+          title="People behind the build"
+          subtitle="We’re early and honest. No inflated metrics—just shipping."
+        />
+
+        <div className="mt-10 grid md:grid-cols-2 gap-6">
+          <div className="glass gradient-border p-6">
+            <h3 className="text-lg font-semibold">Nexvora</h3>
+            <p className="text-white/70 mt-2">
+              A software and AI brand focused on pragmatic engineering. We prioritize clarity,
+              maintainability, and reliability over hype.
+            </p>
+            <hr className="divider my-6" />
+            <ul className="space-y-2 text-white/80 text-sm">
+              <li>• First real project — building foundations.</li>
+              <li>• Transparent progress — Coming Soon where needed.</li>
+              <li>• Open for meaningful collaborations.</li>
+            </ul>
+          </div>
+
+          <div className="glass gradient-border p-6">
+            <h3 className="text-lg font-semibold">Founders</h3>
+            <div className="mt-3 space-y-4">
+              <div>
+                <p className="font-medium">Sanskar Gavali (Sam)</p>
+                <p className="text-white/70 text-sm">Co-founder, Engineering</p>
+              </div>
+              <div>
+                <p className="font-medium">Shubham Funde (Shubh)</p>
+                <p className="text-white/70 text-sm">Co-founder, Systems</p>
+              </div>
+            </div>
+            <hr className="divider my-6" />
+            <div className="text-sm text-white/70">
+              Support: 8432451546 • Email: studioes.nexvora
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+};
+
+export default About;

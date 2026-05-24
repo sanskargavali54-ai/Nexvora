@@ -1,0 +1,66 @@
+import React from "react";
+import Container from "./common/Container";
+import GradientText from "./common/GradientText";
+import Button from "./common/Button";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "../utils/motion";
+import { Link } from "react-router-dom";
+
+const Hero = () => {
+  return (
+    <section className="relative pt-16 md:pt-24">
+      <Container>
+        <motion.div
+          variants={staggerContainer(0.12)}
+          initial="hidden"
+          animate="show"
+          className="text-center"
+        >
+          <motion.p variants={fadeInUp(0)} className="text-xs uppercase tracking-[0.25em] text-white/60">
+            Software & AI Studio
+          </motion.p>
+
+          <motion.h1
+            variants={fadeInUp(0.05)}
+            className="mt-3 text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight"
+          >
+            Building reliable <GradientText>AI systems</GradientText> and modern software
+          </motion.h1>
+
+          <motion.p variants={fadeInUp(0.1)} className="mt-4 text-white/70 max-w-2xl mx-auto">
+            First real project. No fake stats, clients, or case studies—only honest progress.
+            Open for meaningful collaborations.
+          </motion.p>
+
+          <motion.div variants={fadeInUp(0.15)} className="mt-8 flex items-center justify-center gap-3">
+            <Button as={Link} to="/contact" variant="primary" className="h-10 px-5">
+              Start a Conversation
+            </Button>
+            <Button as={Link} to="/services" variant="ghost" className="h-10 px-5">
+              Explore Services
+            </Button>
+          </motion.div>
+
+          <motion.div
+            variants={fadeInUp(0.2)}
+            className="mt-12 glass gradient-border p-4 sm:p-6 mx-auto max-w-3xl text-left"
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div>
+                <p className="text-white/90 font-medium">Status</p>
+                <p className="text-white/60 text-sm">
+                  Currently Building • Open for Collaborations
+                </p>
+              </div>
+              <div className="text-white/70 text-sm">
+                Support: 8432451546 • Email: studioes.nexvora
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </Container>
+    </section>
+  );
+};
+
+export default Hero;

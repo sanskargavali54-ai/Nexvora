@@ -1,0 +1,65 @@
+import React, { useMemo } from "react";
+import { motion } from "framer-motion";
+import usePrefersReducedMotion from "../hooks/usePrefersReducedMotion";
+
+/**
+ * Lightweight, static particle dots with subtle float. Optimized for low-end devices.
+ */
+const ParticlesBG = () => {
+  const reduced = usePrefersReducedMotion();
+
+  const points = useMemo(() => {
+    const arr = [];
+    const count = 28; // small number for performance
+    for (let i = 0; i < count; i++) {
+      arr.push({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        size: 2 + Math.random() * 2,
+        delay: Math.random() * 4,
+      });
+    }
+    return arr;
+  }, []);
+
+  return (
+    <div className="pointer-events-none fixed inset-0 z-0">
+      {points.map((p) => (
+        <motion.span
+          key={p.id}
+          className="absolute rounded-full"
+          style={{
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            width: p.size,
+            height: p.size,
+            background:
+              "radial-gradient(circle, rgba(92,225,255,0.9) 0%, rgba(176,92,255,0.0) 70%)",
+            filter: "drop-shadow(0 0 6px rgba(92,225,255,0.7))",
+          }}
+          initial={false}
+          animate={
+            reduced
+              ? {}
+              : {
+                  y: [0, -6, 0],
+                }
+          }
+          transition={
+            reduced
+              ? {}
+              : {
+                  duration: 6,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  delay: p.delay,
+                }
+          }
+        />
+      ))}
+    </div>
+  );
+};
+
+export default ParticlesBG;

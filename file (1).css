@@ -1,0 +1,12 @@
+/* Additional theme helpers */
+.text-gradient {
+  background: linear-gradient(90deg, #5ce1ff, #b05cff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient-soft {
+  background: radial-gradient(600px 240px at 80% 0%, rgba(92,225,255,0.12), transparent 70%),
+              radial-gradient(500px 200px at 10% 100%, rgba(176,92,255,0.12), transparent 70%);
+}

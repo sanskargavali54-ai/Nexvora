@@ -1,0 +1,32 @@
+import React from "react";
+import Container from "./common/Container";
+import { socials } from "../data/socials";
+
+const Footer = () => {
+  return (
+    <footer className="relative z-10 mt-16 border-t border-white/5 bg-bg/70 backdrop-blur-md">
+      <Container className="py-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-white/60 text-sm">
+            © {new Date().getFullYear()} Nexvora. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target={s.external ? "_blank" : undefined}
+                rel={s.external ? "noreferrer" : undefined}
+                className={`text-sm link ${s.disabled ? "pointer-events-none opacity-50" : ""}`}
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </footer>
+  );
+};
+
+export default Footer;

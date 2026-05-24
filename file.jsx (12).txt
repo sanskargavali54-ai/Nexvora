@@ -1,0 +1,38 @@
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import logo from "../assets/logo.svg";
+import usePrefersReducedMotion from "../hooks/usePrefersReducedMotion";
+
+const LoadingScreen = () => {
+  const [done, setDone] = useState(false);
+  const reduced = usePrefersReducedMotion();
+
+  useEffect(() => {
+    const t = setTimeout(() => setDone(true), 900); // snappy load
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {!done && (
+        <motion.div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-bg"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <motion.img
+            src={logo}
+            alt="Nexvora"
+            className="h-10 w-auto"
+            initial={reduced ? {} : { scale: 0.9, opacity: 0 }}
+            animate={reduced ? {} : { scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default LoadingScreen;
